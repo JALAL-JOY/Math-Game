@@ -116,17 +116,20 @@ function checkScore() {
   resultMessage.style.display = "block";
 }
 
-function endGame() {
-  stopTimer();
-  document.getElementById("gamecontainer").style.display = "none";
-  gameOverElement.style.display = "block";
-  finalScoreElement.innerHTML = `Your score: ${score}/10`;
-  clearInterval(timerInterval);
-  checkScore();
-  timerElement.style.display = "none";
+function restartGame() {
+  score = 0;
+  questionCount = 0;
+  gameOverElement.style.display = "none";
+  document.getElementById("gamecontainer").style.display = "block";
   resultElement.style.display = "none";
+  scoreElement.style.display = "none";
+  timerElement.style.display = "block";
+  submitButton.style.display = "inline-block";
+  nextButton.style.display = "none";
+  answerElement.style.display = "none";
+  questionElement.style.display = "none";
+  hey();
 }
-
 submitButton.addEventListener("click", hey);
 nextButton.addEventListener("click", checkAnswer);
 answerElement.addEventListener("keydown", function (event) {
