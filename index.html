@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .game {
+        background: linear-gradient(135deg, #6fff08 0%, #e5ed53 100%);
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        width: 380px;
+        padding: 30px;
+        text-align: center;
+        position: relative;
+      }
+      h1 {
+        font-family: "PixelFont", sans-serif;
+        font-size: 50px;
+        margin-bottom: 20px;
+        color: #333;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      #timer,
+      #score {
+        font-size: 18px;
+        margin: 10px 0;
+        color: #444;
+      }
+      .question {
+        font-size: 24px;
+        margin: 20px 0;
+        color: #222;
+        display: none;
+      }
+      #answer {
+        width: calc(100% - 24px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+        display: none;
+      }
+      #answer:focus {
+        border-color: #52e2fc;
+      }
+      .btn,
+      .restart {
+        background-color: #52e2fc;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.2s, background-color 0.3s;
+        margin: 5px;
+      }
+      .btn,
+      .restart {
+        width: 100%;
+      }
+      .btn1 {
+        width: auto;
+        display: none;
+      }
+      .btn:hover,
+      .btn1:hover,
+      .restart:hover {
+        background-color: #4ca3b8;
+        transform: translateY(-2px);
+      }
+      .btn:active,
+      .btn1:active,
+      .restart:active {
+        transform: translateY(0);
+      }
+      .ruselt {
+        margin: 15px 0;
+        font-size: 18px;
+        display: none;
+      }
+      .gameover {
+        display: none;
+        text-align: center;
+      }
+      @font-face {
+        font-family: "PixelFont";
+        src: url("ChildrenAmongLionsItalic-0469.ttf") format("truetype");
+      }
+      @media screen and (max-width: 768px) {
+        .game {
+          width: 90%;
+          padding: 20px;
+        }
+        h1 {
+          font-size: 36px;
+        }
+        #timer,
+        #score {
+          font-size: 16px;
+        }
+        .question {
+          font-size: 20px;
+        }
+        #answer {
+          font-size: 14px;
+          padding: 8px;
+        }
+        .btn,
+        .restart {
+          font-size: 14px;
+          padding: 10px;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .game {
+          width: 95%;
+          padding: 15px;
+        }
+        h1 {
+          font-size: 28px;
+        }
+        #timer,
+        #score {
+          font-size: 14px;
+        }
+        .question {
+          font-size: 18px;
+        }
+        #answer {
+          font-size: 12px;
+          padding: 6px;
+        }
+        .btn,
+        .restart {
+          font-size: 12px;
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game">
+      <h1>🎲Play Game🎲</h1>
+      <div id="timer"></div>
+      <div id="gamecontainer">
+        <div class="question"></div>
+        <input
+          id="answer"
+          type="number"
+          class="answer"
+          placeholder="Enter your answer here"
+        />
+        <button type="button" class="btn1" onclick="checkAnswer()">Next</button>
+        <button type="button" class="btn" onclick="hey()">Start</button>
+      </div>
+      <div class="ruselt"></div>
+      <div id="score"></div>
+      <div class="gameover">
+        <h1>Game Over</h1>
+        <p>Your score is: <span id="finalScore"></span></p>
+        <p
+          id="resultMessage"
+          style="
+            display: none;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+          "
+        ></p>
+
+        <button onclick="restartGame()" type="button" class="restart">
+          Restart
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="script.js
+"></script>
